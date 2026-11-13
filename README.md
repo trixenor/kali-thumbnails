@@ -82,6 +82,14 @@ Sans option, tout est installé. Pour choisir : `--psd`, `--ai`, `--zip`, `--vid
 
 Vérifie le type du fichier avec `xdg-mime query filetype "mon fichier.psd"`. S'il n'est pas dans la ligne `MimeType=` du bon fichier de `~/.local/share/thumbnailers/`, ajoute-le, puis lance `pkill tumblerd; rm -rf ~/.cache/thumbnails` et rouvre Thunar. Le mode d'emploi complet est dans [`docs/MODE-EMPLOI.txt`](docs/MODE-EMPLOI.txt).
 
+## License / Licence
+
+MIT License, see [`LICENSE`](LICENSE). / Licence MIT, voir [`LICENSE`](LICENSE).
+
+## Contributing / Contribuer
+
+Issues and pull requests are welcome, see [`CONTRIBUTING.md`](CONTRIBUTING.md). / Les suggestions et corrections sont les bienvenues.
+
 ---
 
 *Keywords: Kali Linux, Thunar, XFCE, thumbnails, thumbnailer, tumbler, PSD preview, Photoshop, Illustrator, AI, EPS, ZIP preview, font preview, TTF, OTF, miniatures, aperçu, polices.*
