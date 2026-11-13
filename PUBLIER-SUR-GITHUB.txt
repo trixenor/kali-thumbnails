@@ -1,0 +1,56 @@
+MODE D'EMPLOI : publier kali-thumbnails sur GitHub (sans permissions à régler)
+===============================================================================
+
+Le dépôt trixenor/kali-thumbnails existe déjà, vide et public.
+
+
+1. PRÉPARER LES FICHIERS
+------------------------
+a) Télécharge kali-thumbnails-github.zip depuis la conversation.
+b) Décompresse-le. Tu obtiens :
+      README.md
+      kali-miniatures-complet.sh
+      docs/MODE-EMPLOI.txt
+
+
+2. LES DÉPOSER SUR GITHUB
+-------------------------
+a) Ouvre https://github.com/trixenor/kali-thumbnails
+b) Clique sur « uploading an existing file » (ou Add file > Upload files).
+c) Glisse dans la page : README.md, kali-miniatures-complet.sh et le DOSSIER docs.
+   (Glisser le dossier docs garde son nom et son contenu.)
+d) Descends et clique sur « Commit changes ».
+
+
+3. AJOUTER LA DESCRIPTION ET LES SUJETS (POUR ÊTRE BIEN RÉFÉRENCÉ)
+------------------------------------------------------------------
+Sur la page du dépôt, à droite de « About », clique sur la roue dentée.
+
+Description :
+  One-command Thunar thumbnails for Kali Linux (XFCE): PSD, Illustrator/AI, ZIP, fonts, video, WebP, HEIC, Office. Miniatures PSD, AI, ZIP et polices.
+
+Topics (un par un, puis Entrée) :
+  kali-linux, thunar, xfce, thumbnails, thumbnailer, tumbler, psd, photoshop,
+  illustrator, zip, fonts, file-manager, bash, linux
+
+Coche aussi « Releases » et « Packages » si tu veux, mais ce n'est pas nécessaire.
+
+
+4. VÉRIFIER
+-----------
+- La page d'accueil du dépôt affiche le README avec les tableaux.
+- Le fichier kali-miniatures-complet.sh est à la racine.
+- Le dossier docs contient MODE-EMPLOI.txt.
+
+
+5. LICENCE (À TOI DE CHOISIR)
+-----------------------------
+Sans licence, personne n'a le droit légal de réutiliser le code. Si tu veux
+qu'il soit réutilisable, ajoute-en une : Add file > Create new file, nomme-le
+LICENSE, puis clique sur « Choose a license template » (MIT est la plus simple).
+
+
+6. PLUS TARD
+------------
+Pour une nouvelle version du script : ouvre le fichier sur GitHub, clique sur le crayon,
+colle le nouveau contenu, puis « Commit changes ».
