@@ -1,0 +1,99 @@
+MODE D'EMPLOI : kali-miniatures-complet.sh
+==========================================
+
+À QUOI ÇA SERT
+Afficher des miniatures (aperçus) dans Thunar, le gestionnaire de fichiers de Kali,
+pour des fichiers qui n'en ont pas par défaut : PSD, Illustrator, ZIP, vidéos, etc.
+
+
+1. LANCER LE SCRIPT
+-------------------
+a) Place kali-miniatures-complet.sh dans un dossier, par exemple Téléchargements.
+
+b) Ouvre un terminal dans ce dossier. Deux façons :
+   - Dans Thunar, clic droit dans le dossier, puis "Ouvrir un terminal ici".
+   - Ou tape : cd ~/Téléchargements      (ou cd ~/Downloads selon ta langue)
+
+c) Lance le script :
+      bash kali-miniatures-complet.sh
+
+d) Entre ton mot de passe quand sudo le demande (rien ne s'affiche pendant la saisie,
+   c'est normal). Attends la fin : le message "Terminé" apparaît.
+
+Thunar redémarre tout seul à la fin.
+
+
+2. VOIR LES MINIATURES
+----------------------
+- Ouvre un dossier contenant des PSD, des .ai, des zips, etc.
+- Passe en vue icônes : Ctrl+1.
+- Attends quelques secondes. Les gros fichiers sont lents la première fois.
+
+
+3. LES OPTIONS
+--------------
+Sans option, le script installe tout. Pour choisir :
+
+  bash kali-miniatures-complet.sh --psd        Photoshop
+  bash kali-miniatures-complet.sh --ai         Illustrator et EPS
+  bash kali-miniatures-complet.sh --zip        ZIP (première image), .cbz, .ora, .kra
+  bash kali-miniatures-complet.sh --video      vidéos
+  bash kali-miniatures-complet.sh --images     WebP, SVG, HEIC, AVIF, XCF
+  bash kali-miniatures-complet.sh --office     Word, Excel, PowerPoint
+  bash kali-miniatures-complet.sh --fonts      polices .ttf/.otf et ZIP de polices
+
+Les options se combinent :
+  bash kali-miniatures-complet.sh --psd --ai --zip
+
+Aide intégrée :
+  bash kali-miniatures-complet.sh --help
+
+
+4. TOUT SUPPRIMER
+-----------------
+  bash kali-miniatures-complet.sh --uninstall
+
+Pour supprimer seulement un format, ajoute son option :
+  bash kali-miniatures-complet.sh --uninstall --zip
+
+
+5. LIMITES À CONNAÎTRE
+----------------------
+- ZIP : une miniature n'apparaît que si l'archive contient une image
+  (PNG, JPG, GIF, WebP). Sinon, l'icône d'archive reste.
+- OFFICE : le document doit contenir un aperçu intégré. Beaucoup n'en ont pas.
+- POLICES : un ZIP qui contient des .ttf ou .otf affiche l'aperçu « Aa Abc 123 » de la police
+  (la version « Regular » si elle existe). Les .woff et .woff2 ne sont pas gérés.
+  Avec --fonts, un ZIP de polices s'affiche comme police, même s'il contient aussi des images.
+  --fonts active aussi la lecture des ZIP.
+- AI : les très vieux fichiers Illustrator (avant CS) ne sont pas des PDF
+  et peuvent ne jamais avoir de miniature.
+- Fichiers Illustrator non carrés : des marges blanches peuvent apparaître.
+
+
+6. SI UNE MINIATURE NE S'AFFICHE PAS
+------------------------------------
+a) Vérifie le type du fichier :
+      xdg-mime query filetype "mon fichier.psd"
+
+b) Si le type affiché n'est pas dans la ligne MimeType= du bon fichier, ajoute-le :
+      nano ~/.local/share/thumbnailers/psd.thumbnailer
+   (remplace psd par ai, zip, images-extra ou office selon le format)
+
+c) Redémarre les miniatures :
+      pkill tumblerd
+      rm -rf ~/.cache/thumbnails
+      thunar -q; sleep 1; thunar &
+
+d) Vérifie les limites de Thunar :
+   Édition > Préférences > Affichage > Aperçus des miniatures
+   - Afficher les miniatures : Toujours
+   - Taille maximale des fichiers : la valeur la plus haute
+
+
+7. OÙ SONT LES FICHIERS INSTALLÉS
+---------------------------------
+Générateurs de miniatures : ~/.local/share/thumbnailers/
+Assistant des zips        : ~/.local/bin/zip-thumb
+Assistant des polices     : ~/.local/bin/font-thumb
+Cache des miniatures      : ~/.cache/thumbnails/  (peut être vidé sans risque)
